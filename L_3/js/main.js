@@ -1,5 +1,6 @@
 const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
 
+
 class List {
     constructor(url, container, list = list2){
         this.container = container;
@@ -27,7 +28,7 @@ class List {
         const block = document.querySelector(this.container);
         for (let product of this.goods){
             //console.log(this.constructor.name);
-            const productObj = new this.list[this.constructor.name](product);//мы сделали объект товара либо CartItem, либо ProductItem
+            const productObj = new this.list[this.constructor.name](product);
             console.log(productObj);
             this.allProducts.push(productObj);
             block.insertAdjacentHTML('beforeend', productObj.render());
@@ -178,7 +179,4 @@ const list2 = {
 
 
 let cart = new Cart();
-let products = new ProductsList(cart);//Если мы хотим использовать в классе
-//методы другого класса, то удобнее всего в конструктор передать объект класса,
-//методы которого нам нужны в данном классе
-//products.getJson(`getProducts.json`).then(data => products.handleData(data));
+let products = new ProductsList(cart);
